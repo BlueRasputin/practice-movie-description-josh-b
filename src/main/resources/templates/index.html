@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movie Descriptions</title>
+</head>
+<body>
+<h1>Generate Movie Description</h1>
+<form method="post" action="/generate">
+    <label for="movieTitle">Movie Title:</label>
+    <input type="text" id="movieTitle" name="movieTitle" required>
+    <button type="submit">Generate</button>
+</form>
+<h2>Movie List</h2>
+<ul>
+    <th:block th:each="movie : ${movies}">
+        <li><strong th:text="${movie.title}"></strong>: <span th:text="${movie.description}"></span></li>
+    </th:block>
+</ul>
+</body>
+</html>
